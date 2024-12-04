@@ -9,6 +9,7 @@ vim.opt.mouse = ""
 --vim.opt.ttymouse = ""
 --
 vim.opt.shell = "/bin/sh"
+-- Spell
 vim.opt.spelllang = "en"
 vim.opt.spell = true
 

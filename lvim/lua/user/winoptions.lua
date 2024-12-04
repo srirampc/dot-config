@@ -5,6 +5,9 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.relativenumber = true
 vim.opt.colorcolumn = "80"
+-- Spell
+vim.opt.spelllang = "en"
+vim.opt.spell = true
 -- Enable powershell as your default shell
 vim.opt.shell = "pwsh.exe -NoLogo"
 vim.opt.shellcmdflag =
