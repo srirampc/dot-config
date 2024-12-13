@@ -13,8 +13,8 @@ After the first startup call `:Lazy sync` to update the neovim plugins.
 ## Language Servers
 
 LSP plugins are installed either with `:MasonInstall` or in the environment.
-For C++ (cpplint, clangd, clang-format) and python (black, flake8, pyright), 
-it is better to install in the system.
+*Note: For C++ (cpplint, clangd, clang-format) and python (black, flake8, pyright), 
+it is better to install in the system.*
 
 For C/C++:
 ```
@@ -34,6 +34,8 @@ For Python:
 Others:
 ```
     ◍ bash-language-server
+    ◍ fixjson 
+    ◍ prettierd 
     ◍ json-lsp
     ◍ lua-language-server
     ◍ rust-analyzer

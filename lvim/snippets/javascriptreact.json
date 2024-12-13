@@ -1,0 +1,12 @@
+{
+    "clog": {
+        "prefix": "clog",
+        "body": [ "console.log('$1')" ],
+        "description": "Log output to console"
+    },
+    "maplc": {
+        "prefix": "maplc",
+        "body": [ "${1:iterable}.map((${2:item}) => ($0))" ],
+        "description": "Map with a single line component"
+    }
+}
