@@ -242,11 +242,12 @@ formatters.setup {
     { name = "clang_format" },
     --   { command = "stylua" },
     { command = "fixjson",  filetypes = { "json" } },
-    -- {
-    --     command = "prettier",
-    --     extra_args = { "--print-width", "100" },
-    --     filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "css" },
-    -- },
+    {
+        command = "prettierd",
+        --- extra_args = { "--print-width", "100" },
+        args = { "--no-semi", "--single-quote" },
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "css" },
+    },
 }
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
@@ -263,7 +264,13 @@ linters.setup {
         command = "cpplint",
         args = { "--filter=-legal/copyright" },
     },
+    {
+        command = "eslint",
+        filetypes = { "javascript" }
+    }
 }
+
+local code_actions = require "lvim.lsp.null-ls.code_actions"
 
 --+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
 --++++* Additional Plugins                                   *+++++-
