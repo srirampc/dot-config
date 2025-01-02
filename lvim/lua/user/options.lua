@@ -266,7 +266,7 @@ linters.setup {
     },
     {
         command = "eslint",
-        filetypes = { "javascript" }
+        filetypes = { "javascript", "typescript" }
     }
 }
 
