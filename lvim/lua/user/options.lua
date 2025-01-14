@@ -278,7 +278,7 @@ linters.setup {
     },
     {
         command = "eslint",
-        filetypes = { "javascript", "typescript" }
+        filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact" }
     }
 }
 
