@@ -1,0 +1,14 @@
+{
+    "argsparse": {
+        "prefix": "args",
+        "body": [
+            "    import argsparse",
+            "    parser = argparse.ArgumentParser()",
+            "    parser.add_argument('--argument-one', dest='argument_one', default='No Value')",
+            "    parser.add_argument('--argument-two', default=False, action='store_true',",
+            "                        dest='argument_two')",
+            "",
+            "    args = parser.parse_args()",
+        ]
+    }
+}
