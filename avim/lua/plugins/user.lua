@@ -1,4 +1,4 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- NOTE: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
@@ -15,6 +15,47 @@ return {
     config = function() require("lsp_signature").setup() end,
   },
 
+  -- Surround with braces
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
+  },
+  -- "sirver/ultisnips",
+  -- {
+  --     "folke/trouble.nvim",
+  --     dependencies = { "nvim-tree/nvim-web-devicons" },
+  --     cmd = "TroubleToggle",
+  -- },
+  -- Persistent Sessions
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+    config = function()
+      require("persistence").setup {
+        dir = vim.fn.expand(vim.fn.stdpath "state" .. "/sessions/"),
+        options = { "buffers", "curdir", "tabpages", "winsize" },
+      }
+    end,
+  },
+  -- Harpoon for going back and forth
+  { "ThePrimeagen/harpoon" },
+  -- Telescope frequently opened fiel
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "kkharji/sqlite.lua" },
+    config = function() require("telescope").load_extension "frecency" end,
+  },
+  -- Vim tmux: TODO: redo tmux
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
   -- == Examples of Overriding Plugins ==
 
   -- customize alpha options
@@ -37,17 +78,6 @@ return {
       }
       return opts
     end,
-  },
-
-  {
-        "kylechui/nvim-surround",
-        version = "*", -- Use for stability; omit to use `main` branch for the latest features
-        event = "VeryLazy",
-        config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
-        end
   },
 
   -- You can disable default plugins as follows:
