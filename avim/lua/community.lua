@@ -1,4 +1,4 @@
-if true then return {} end -- NOTE: ACTIVATE/DEACTIVATE THIS FILE
+-- if true then return {} end -- NOTE: ACTIVATE/DEACTIVATE THIS FILE
 
 -- AstroCommunity: import any community modules here
 -- In `lazy_setup.lua`, this file is imported before the `plugins/` folder.
