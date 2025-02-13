@@ -26,7 +26,6 @@ return {
           "javascript",
           "javascriptreact",
           "lua",
-          "markdown",
           "typescript",
           "typescriptreact",
           "toml",
