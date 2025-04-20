@@ -103,6 +103,21 @@ return {
         },
       },
     },
+    -- Extra configuration for the `mason-lspconfig.nvim` plugin
+    mason_lspconfig = {
+      -- Allow registering more Mason packages as language servers for autodetection/setup
+      servers = {
+        -- The key is the lspconfig server name to register a package for
+        nextflow_ls = {
+          -- The Mason package name to register to the language server
+          package = "nextflow-language-server",
+          -- The filetypes that apply to the package and language server
+          filetypes = { "nextflow" },
+          -- (Optional) any default configuration changes that may need to happen (can be a table or a function that returns a table)
+          config = { cmd = { "nextflow-language-server" } },
+        },
+      },
+    },
     -- A custom `on_attach` function to be run after the default `on_attach` function
     -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
     on_attach = function(client, bufnr)
