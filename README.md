@@ -2,10 +2,13 @@
 
 Configuration files for :
 
-- neovim/lunarvim (lvim)
-- specific LSPs  (lsp_config) 
-- vim in Windows  (win)
+- neovim/astrovim (avim/)
+- specific LSPs (lsp_config)
+- vim in Windows (win)
 - tmux (tmux)
 - bash (bash)
 
-I no longer use `fish` as it causes significant slowdown with many neovim packages.
+## Notes
+
+- No longer using `fish` because it causes significant slowdown with many neovim packages.
+- Changed from lunarvim to astrovim as it satisfies most requirements.
