@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# unload modules
+if [ -f ~/.unload_mod.sh ]; then
+    . "$HOME/.unload_mod.sh"
+fi
+
+# global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# aliases
+if [ -f ~/.bash_aliases ]; then
+    . "$HOME/.bash_aliases"
+fi
+
+# cargo
+if [ -f ~/.cargo/env ]; then
+    . "$HOME/.cargo/env"
+fi
+
+export XDG_RUNTIME_DIR="$HOME/.cache/xdgr"
+# fnm
+FNM_PATH="$HOME/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+   export PATH="$FNM_PATH:$PATH"
+   eval "`fnm env`"
+fi
+
+# Path
+PATH=$HOME/.local/bin:$HOME/bin:$PATH
+export PATH
+
+
+# NOTE:: bash-it goes here
+
+# NOTE:: spack goes here
+
+# NOTE:: conda goes here
