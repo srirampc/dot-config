@@ -1,0 +1,66 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "ui_font_family": "Concourse T3",
+  "buffer_font_family": "Iosevka Nerd Font",
+  "git_panel": {
+    "tree_view": true,
+  },
+  "ssh_connections": [
+    {
+      "host": "compbio.cc.gatech.edu",
+      "username": "schockalingam6",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/project/schockalingam6"],
+        },
+        {
+          "paths": [
+            "/project/schockalingam6/gene_networks/acworth/ext/mxx_rs/./",
+          ],
+        },
+        {
+          "paths": [
+            "/project/schockalingam6/gene_networks/acworth/ext/parensnet_rs",
+          ],
+        },
+      ],
+    },
+  ],
+  "vim_mode": true,
+  "icon_theme": "Catppuccin Mocha",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "soft_wrap": "none", // none, editor_width, preferred_line_length, bounded
+  "preferred_line_length": 80, // Column to soft-wrap
+  "wrap_guides": [80, 120], // Where to position wrap_guides (character counts)
+  "theme": {
+    "mode": "dark",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha",
+  },
+  "languages": {
+    "LaTeX": {
+      "language_servers": ["texlab", "codebook"],
+      "format_on_save": "off",
+    },
+  },
+  "lsp": {
+    "texlab": {
+      "settings": {
+        "texlab": {
+          "build": {
+            "onSave": false,
+          },
+        },
+      },
+    },
+  },
+}
