@@ -31,6 +31,7 @@ return {
           "typescriptreact",
           "toml",
           "yaml",
+          -- "go",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
           -- "python",
@@ -48,20 +49,20 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
+      "nextflow-language-server",
     },
-    -- customize language server configuration options passed to `lspconfig`
-    ---@diagnostic disable: missing-fields
+    -- customize language server configuration passed to `vim.lsp.config`
+    -- client specific configuration can also go in `lsp/` in your configuration root (see `:h lsp-config`)
     config = {
-      -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      -- ["*"] = { capabilities = {} }, -- modify default LSP client settings such as capabilities
     },
     -- customize how language servers are attached
     handlers = {
-      -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
-      -- function(server, opts) require("lspconfig")[server].setup(opts) end
+      -- a function with the key `*` modifies the default handler, functions takes the server name as the parameter
+      -- ["*"] = function(server) vim.lsp.enable(server) end
 
-      -- the key is the server that is being setup with `lspconfig`
+      -- the key is the server that is being setup with `vim.lsp.config`
       -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
-      -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
     },
     -- Configure buffer local auto commands to add when attaching a language server
     autocmds = {
@@ -80,7 +81,7 @@ return {
           -- the rest of the autocmd options (:h nvim_create_autocmd)
           desc = "Refresh codelens (buffer)",
           callback = function(args)
-            if require("astrolsp").config.features.codelens then vim.lsp.codelens.refresh { bufnr = args.buf } end
+            if require("astrolsp").config.features.codelens then vim.lsp.codelens.enable(true, { bufnr = args.buf }) end
           end,
         },
       },
@@ -98,28 +99,13 @@ return {
           function() require("astrolsp.toggles").buffer_semantic_tokens() end,
           desc = "Toggle LSP semantic highlight (buffer)",
           cond = function(client)
-            return client.supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
+            return client:supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
           end,
         },
       },
     },
-    -- Extra configuration for the `mason-lspconfig.nvim` plugin
-    mason_lspconfig = {
-      -- Allow registering more Mason packages as language servers for autodetection/setup
-      servers = {
-        -- The key is the lspconfig server name to register a package for
-        nextflow_ls = {
-          -- The Mason package name to register to the language server
-          package = "nextflow-language-server",
-          -- The filetypes that apply to the package and language server
-          filetypes = { "nextflow" },
-          -- (Optional) any default configuration changes that may need to happen (can be a table or a function that returns a table)
-          config = { cmd = { "nextflow-language-server" } },
-        },
-      },
-    },
     -- A custom `on_attach` function to be run after the default `on_attach` function
-    -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
+    -- takes two parameters `client` and `bufnr`  (`:h lsp-attach`)
     on_attach = function(client, bufnr)
       -- this would disable semanticTokensProvider for all clients
       -- client.server_capabilities.semanticTokensProvider = nil

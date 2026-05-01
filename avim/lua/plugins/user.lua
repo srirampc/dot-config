@@ -9,12 +9,12 @@ return {
 
   -- == Adding Plugins ==
 
-  "andweeb/presence.nvim",
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "BufRead",
-    config = function() require("lsp_signature").setup() end,
-  },
+  --"andweeb/presence.nvim",
+  --{
+  --  "ray-x/lsp_signature.nvim",
+  --  event = "BufRead",
+  --  config = function() require("lsp_signature").setup() end,
+  --},
 
   -- Surround with braces
   {
@@ -45,7 +45,7 @@ return {
     end,
   },
   -- Harpoon for going back and forth
-  { "ThePrimeagen/harpoon" },
+  -- { "ThePrimeagen/harpoon" },
   -- Telescope frequently opened fiel
   {
     "nvim-telescope/telescope-frecency.nvim",
@@ -127,5 +127,22 @@ return {
         Rule("a", "a", "-vim")
       )
     end,
+  },
+  { -- further customize the options set by the community
+    "catppuccin",
+    opts = {
+      integrations = {
+        sandwich = false,
+        noice = true,
+        mini = true,
+        leap = true,
+        markdown = true,
+        neotest = true,
+        cmp = true,
+        overseer = true,
+        lsp_trouble = true,
+        rainbow_delimiters = true,
+      },
+    },
   },
 }

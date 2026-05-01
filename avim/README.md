@@ -1,14 +1,14 @@
 # neovim customization based on AstroVim
 
-
-My custom neovim starting with the [AstroNvim](https://github.com/AstroNvim/AstroNvim)
+This custom neovim is a minor customization using 
+[AstroNim](https://github.com/AstroNvim/AstroNvim)
 
 ## 🛠️ Installation
 
 #### Dependencies
 
 - Install neovim from [here](https://neovim.io/)
-- Deps: python, pip, rust, cargo, node, npm, ripgrep
+- Deps: python, pip, rust, cargo, nodejs w. npm, ripgrep
 - LSP Dependencies: cpplint, pyright, black, flake8
 - Others: shellcheck (for bash), [fzf](https://github.com/junegunn/fzf) 
 
@@ -22,8 +22,14 @@ mv ~/.local/state/nvim ~/.local/state/nvim.bak
 mv ~/.cache/nvim ~/.cache/nvim.bak
 ```
 
-#### Soft link to this repo as the neovim config directory
+#### Link to this `avim` directory as the neovim config directory
 
+Optionally delete lazy-lock.json, if exists
+```shell
+rm -f $HOME/dot-config/avim/lazy-lock.json 
+```
+
+Link the `.config/nvim` directory as below:
 ```shell
 ln -s $HOME/dot-config/avim/ $HOME/.config/nvim
 ```
